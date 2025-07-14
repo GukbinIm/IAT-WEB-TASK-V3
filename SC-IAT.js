@@ -1,7 +1,8 @@
-let frameDur;
 ﻿/*************** 
  * Sc-Iat *
  ***************/
+
+let currentLoop;
 
 import { core, data, sound, util, visual, hardware } from './lib/psychojs-2024.2.4.js';
 const { PsychoJS } = core;
@@ -116,6 +117,8 @@ psychoJS.start({
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
 async function updateInfo() {
+  let frameDur;
+
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
